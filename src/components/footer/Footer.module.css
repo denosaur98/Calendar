@@ -1,0 +1,21 @@
+@font-face {
+    font-family: 'Comfortaa600';
+    src: url('../../assets/Comfortaa600.ttf');
+}
+.footer {
+    display: flex;
+    margin-top: 12px;
+    justify-content: center;
+    text-decoration: none;
+    font-family: 'Comfortaa600';
+}
+.a {
+    font-family: 'Comfortaa600';
+	text-decoration: none;
+	color: #DDDDDD;
+	font-weight: bold;
+}
+.a:hover {
+	color:#1E1F21;
+    transition: all ease 0.1s;
+}
