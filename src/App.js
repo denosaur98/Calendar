@@ -41,9 +41,9 @@ function App() {
         setEvents(res)
       })
     }, [today]);
-    const openFormHandler = (methodName, eventForUpdate) => {
+    const openFormHandler = (methodName, eventForUpdate, dayItem) => {
       setShowForm(true)
-      setEvent(eventForUpdate || defaultEvent)
+      setEvent(eventForUpdate || {...defaultEvent, date: dayItem.format('X')})
       setMetod(methodName)
     }
     const cancelBtnHandler = () => {
@@ -55,9 +55,6 @@ function App() {
         ...prevState,
         [field]: text
       }))
-    }
-    const removeBtnHandler = () => {
-      
     }
     const eventFetchHandler = () => {
       const fetchUrl = method === 'Update' ? `${url}/event/${event.id}` : `${url}/event`;
@@ -79,6 +76,21 @@ function App() {
           cancelBtnHandler()
         })
     }
+    const removeBtnHandler = () => {
+      const fetchUrl = `${url}/event/${event.id}`;
+      const httpMethod = 'DELETE';
+      fetch(fetchUrl, {
+        method: httpMethod,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+        .then(res => res.json())
+        .then(res => {
+          setEvents(prevState => prevState.filter(eventEl => eventEl.id !== event.id))
+          cancelBtnHandler()
+        })
+    }
   return (
     <>
       {
@@ -88,16 +100,22 @@ function App() {
               <input
                 className="event_title"
                 value={event.title}
+                placeholder="Add title"
                 onChange={e => changeEventHandler(e.target.value, 'title')}
                 />
-              <input
+              <textarea
                 className="event_body"
                 value={event.description}
+                placeholder="Add description"
                 onChange={e => changeEventHandler(e.target.value, 'description')}
                 />
               <div className="buttons_wrapper">
                 <button className="btn" onClick={eventFetchHandler}>{method}</button>
-                <button className="btn" onClick={removeBtnHandler}>Remove</button>
+                {
+                  method === 'Update' ? (
+                    <button className="btn" onClick={removeBtnHandler}>Remove</button>
+                  ) : null
+                }
                 <button className="btn" onClick={cancelBtnHandler}>Cancel</button>
               </div>
             </div>
@@ -118,6 +136,7 @@ function App() {
           events={events}
           openFormHandler={openFormHandler}
           />
+          
           <Footer/>
       </div>
     </>

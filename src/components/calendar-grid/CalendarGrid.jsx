@@ -30,11 +30,12 @@ const CalendarGrid = ({startDay, today, totalDays, events, openFormHandler}) => 
                 className={css.item}
                 isWeekend={dayItem.day() === 6 || dayItem.day() === 0}
                 isSelectedMonth={isSelectedMonth(dayItem)}
-                onDoubleClick={() => openFormHandler('Create')}
+                onDoubleClick={() => openFormHandler('Create', null, dayItem)}
                 title="Нажмите два раза чтобы добавить"
             >{isCurrent(dayItem) ? (<isCurrent className={css.currentDay}>{dayItem.format('D')}</isCurrent>) : (dayItem.format('D'))}
                 <ul className={css.event} key={dayItem}>
                     {events
+                        .slice(0, 2)
                         .filter(event => event.date >= dayItem.format('X') && event.date <= dayItem.clone().endOf('day').format('X'))
                         .map(event => (
                             <li key={event.id}>
@@ -44,6 +45,7 @@ const CalendarGrid = ({startDay, today, totalDays, events, openFormHandler}) => 
                             </li>
                         ))
                     }
+                    {/* {events.length > 2 ? (<div className={css.ev_btn} key="show more">show more...</div>) : null} */}
                 </ul>
             </CellWrapper>
         ))}
