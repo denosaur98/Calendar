@@ -2,4 +2,4 @@
 Backend приложения реализован на json-server на localhost:5000, также установите его (npm/yarn npm install json-server).
 При запуске приложения используйте два терминала:
 1. первый для приложения(npm start)
-2. второй для сервера(npm/yarn serve или json-server -p 5000 --watch db.json)
+2. второй для сервера(npm/yarn run serve # или json-server -p 5000 --watch db.json)

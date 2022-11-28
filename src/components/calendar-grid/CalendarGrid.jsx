@@ -5,7 +5,7 @@ import css from '../calendar-grid/CalendarGrid.module.css';
 const CalendarGrid = ({startDay, today, totalDays, events, openFormHandler}) => {
     const day = startDay.clone().subtract(1, 'day');
     const daysArray = [...Array(totalDays)].map(() => day.add(1, 'day').clone());
-    const CellWrapper = styled.div`
+    const CellWrapper = styled.div`n
         background-color: ${props => props.isWeekend ? '#282a2b' : '#1E1F21'};
         height: ${props => props.isHeader ? '40px' : '80px'};
         width: ${props => props.isHeader ? '140px' : '140px'};
@@ -14,6 +14,7 @@ const CalendarGrid = ({startDay, today, totalDays, events, openFormHandler}) => 
         text-align: ${props => props.isHeader ? 'right' : 'right'};
         padding: ${props => props.isHeader ? '7px' : '10px'};
         color: ${props => props.isSelectedMonth ? '#DDDDDD' : '#555759'};
+        font-family: ${props => props.isHeader ? 'Comfortaa300' : 'Comfortaa300'};
         height: fit-content;`
     const isCurrent = day => moment().isSame(day, 'day');
     const isSelectedMonth = day => today.isSame(day, 'month');
@@ -41,11 +42,12 @@ const CalendarGrid = ({startDay, today, totalDays, events, openFormHandler}) => 
                             <li key={event.id}>
                                 <button className={css.ev_btn}
                                         onClick={() => openFormHandler('Update', event)}
-                                        title="Нажмите чтобы редактировать">{event.title}</button>
+                                        title="Нажмите чтобы редактировать">{event.title}
+                                </button>
                             </li>
                         ))
                     }
-                    {/* {events.length > 2 ? (<div className={css.ev_btn} key="show more">show more...</div>) : null} */}
+                    {events.length > 2 ? (<button className={css.ev_btn} key="show more">show more...</button>) : null}
                 </ul>
             </CellWrapper>
         ))}

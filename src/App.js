@@ -135,9 +135,8 @@ function App() {
           totalDays={totalDays}
           events={events}
           openFormHandler={openFormHandler}
-          />
-          
-          <Footer/>
+        />
+        <Footer/>
       </div>
     </>
   );
