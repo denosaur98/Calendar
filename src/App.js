@@ -3,7 +3,9 @@ import { useState } from 'react';
 import Header from './components/header/Header';
 import CalendarGrid from './components/calendar-grid/CalendarGrid';
 import Footer from './components/footer/Footer';
+import DayComponent from './components/day-component/DayComponent';
 import moment from 'moment';
+import { DISPLAY_MODE_MONTH, DISPLAY_MODE_DAY} from '../src/components/helpers/Config';
 import './App.css';
 const url = 'http://localhost:5000';
 const totalDays = 42;
@@ -13,6 +15,7 @@ const defaultEvent = {
   date: moment().format('X')
 }
 function App() {
+  const [displayMode, setDisplayMode] = useState('month');
   window.moment = moment;
   moment.updateLocale ('en', {week: {dow: 1}});
   const [today, setToday] = useState(moment());
@@ -24,9 +27,9 @@ function App() {
       calendar.push(day.clone())
       day.add(1, 'day')
     }
-    const prevHandler = () => setToday(prev => prev.clone().subtract(1, 'month'))
+    const prevHandler = () => setToday(prev => prev.clone().subtract(1, displayMode))
     const todayHandler = () => setToday(moment())
-    const nextHandler = () => setToday(prev => prev.clone().add(1, 'month'))
+    const nextHandler = () => setToday(prev => prev.clone().add(1, displayMode))
     const [method, setMetod] = useState(null)
     const [isShowForm, setShowForm] = useState(false)
     const [event, setEvent] = useState(null)
@@ -128,14 +131,25 @@ function App() {
           prevHandler={prevHandler}
           todayHandler={todayHandler}
           nextHandler={nextHandler}
+          setDisplayMode={setDisplayMode}
+          displayMode={displayMode}
         />
-        <CalendarGrid
-          startDay={startDay}
-          today={today}
-          totalDays={totalDays}
-          events={events}
-          openFormHandler={openFormHandler}
-        />
+        {
+          displayMode === DISPLAY_MODE_MONTH ? (
+            <CalendarGrid
+              startDay={startDay}
+              today={today}
+              totalDays={totalDays}
+              events={events}
+              openFormHandler={openFormHandler}
+            />
+          ) : null
+        }
+        {
+          displayMode === DISPLAY_MODE_DAY ? (
+            <DayComponent events={events} today={today} selectedEvent={event} setEvent={setEvent}/>
+          ) : null
+        }
         <Footer/>
       </div>
     </>

@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment/moment';
-import CellWrapper from '../cell-wrapper/CellWrapper';
+import { CellWrapper } from '../styled-components/StyledComponents';
 const GridHeader = () => {
     return (
         <>

@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import CellWrapper from '../cell-wrapper/CellWrapper';
+import { CellWrapper } from '../styled-components/StyledComponents';
 import css from '../calendar-grid/CalendarGrid.module.css';
 const CalendarCell = ({dayItem, today, openFormHandler, events}) => {
     const isCurrent = day => moment().isSame(day, 'day');

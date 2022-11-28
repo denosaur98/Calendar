@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'Comfortaa300';
+    src: url('../../assets/Comfortaa300.ttf');
+}
+.form_day {
+    display: flex;
+    justify-content: center;
+    background-color: #1E1F21;
+    border-radius: 5px;
+    min-height: 525px;
+    width: 50%;
+    margin-right: 10px;
+}
+.form_list {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    width: 100%;
+    margin-left: -40px;
+}
+.list_day {
+    cursor: pointer;
+    font-family: 'Comfortaa300';
+    font-size: 20px;
+    background-color: #404040;
+    margin: 5px;
+    border-radius: 3px;
+    padding: 5px;
+}
+.all_forms {
+    display: flex;
+    justify-content: space-between;
+}
+.form_out {
+    display: flex;
+    margin-left: 10px;
+    justify-content: center;
+    background-color: #1E1F21;
+    border-radius: 5px;
+    min-height: 525px;
+    width: 50%;
+}
+.nothing {
+    font-family: 'Comfortaa300';
+    margin-top: 37%;
+    text-align: center;
+    font-size: 25px;
+    color: #404040;
+}
