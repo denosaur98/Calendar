@@ -40,6 +40,7 @@
   box-shadow:unset;
   border-radius: 4px;
   border: 1px solid #464648;
+  border-top: none;
 }
 .event_title {
   font-family: 'Comfortaa300';
@@ -51,8 +52,11 @@
   background-color: #1E1F21;
   color: #DDDDDD;
   outline: unset;
-  border-bottom: 1px solid #464648;
-  border-radius: 4px;
+  background-color: #404040;
+  border: none;
+}
+.event_title:hover {
+  color: #1E1F21;
 }
 .event_body {
   font-family: 'Comfortaa300';
@@ -81,4 +85,9 @@
   border-radius: 3px;
   margin: 5px;
   color: #DDDDDD;
+}
+.btn:hover {
+  transform: scale(1.02);
+  transition: all ease 0.1s;
+  box-shadow: 0.2px 0.2px 6px 0.2px #DDDDDD;
 }

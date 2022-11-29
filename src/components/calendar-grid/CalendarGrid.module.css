@@ -64,3 +64,6 @@
     text-align: left;
     top: -5px;
 }
+.ev_btn:hover {
+    color: #918f8f;
+}

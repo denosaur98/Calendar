@@ -1,8 +1,9 @@
 import React from 'react';
 import moment from 'moment';
+import { DISPLAY_MODE_DAY } from '../helpers/Config';
 import { CellWrapper } from '../styled-components/StyledComponents';
 import css from '../calendar-grid/CalendarGrid.module.css';
-const CalendarCell = ({dayItem, today, openFormHandler, events}) => {
+const CalendarCell = ({dayItem, today, openFormHandler, events, setDisplayMode}) => {
     const isCurrent = day => moment().isSame(day, 'day');
     const isSelectedMonth = day => today.isSame(day, 'month');
     return (
@@ -27,7 +28,7 @@ const CalendarCell = ({dayItem, today, openFormHandler, events}) => {
                                 </li>
                             ))
                         }
-                        {events.length > 2 ? (<button className={css.ev_btn} key="show more">show more...</button>) : null}
+                        {events.length > 2 ? (<button className={css.ev_btn} key="show more" onClick={() => setDisplayMode(DISPLAY_MODE_DAY)}>show more...</button>) : null}
                     </ul>
                 </CellWrapper>
         </>

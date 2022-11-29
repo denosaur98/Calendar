@@ -45,9 +45,12 @@ function App() {
       })
     }, [today]);
     const openFormHandler = (methodName, eventForUpdate, dayItem) => {
-      setShowForm(true)
       setEvent(eventForUpdate || {...defaultEvent, date: dayItem.format('X')})
       setMetod(methodName)
+    }
+    const openModelFormHandler = (methodName, eventForUpdate, dayItem) => {
+      setShowForm(true)
+      openFormHandler(methodName, eventForUpdate, dayItem)
     }
     const cancelBtnHandler = () => {
       setShowForm(false)
@@ -141,13 +144,25 @@ function App() {
               today={today}
               totalDays={totalDays}
               events={events}
-              openFormHandler={openFormHandler}
+              openFormHandler={openModelFormHandler}
+              setDisplayMode={setDisplayMode}
             />
           ) : null
         }
         {
           displayMode === DISPLAY_MODE_DAY ? (
-            <DayComponent events={events} today={today} selectedEvent={event} setEvent={setEvent}/>
+            <DayComponent
+              events={events}
+              today={today}
+              selectedEvent={event}
+              setEvent={setEvent}
+              changeEventHandler={changeEventHandler}
+              cancelBtnHandler={cancelBtnHandler}
+              eventFetchHandler={eventFetchHandler}
+              method={method}
+              removeBtnHandler={removeBtnHandler}
+              openFormHandler={openFormHandler}
+            />
           ) : null
         }
         <Footer/>
