@@ -9,7 +9,7 @@ export const CellWrapper = styled.div`n
         padding: ${props => props.isHeader ? '7px' : '10px'};
         color: ${props => props.isSelectedMonth ? '#DDDDDD' : '#555759'};
         font-family: ${props => props.isHeader ? 'Comfortaa300' : 'Comfortaa300'};
-        height: fit-content;`;
+        `;
 export const BtnWrapper = styled('button')`
         background-color: ${props => props.unPressed ? '#27282A' : '#565759'};
         border-radius: ${props => props.unPressed ? '5px' : '5px'};`

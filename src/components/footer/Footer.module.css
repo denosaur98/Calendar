@@ -3,8 +3,9 @@
     src: url('../../assets/Comfortaa600.ttf');
 }
 .footer {
+    position: relative;
     display: flex;
-    margin-top: 14px;
+    margin: 12px;
     justify-content: center;
     text-decoration: none;
     font-family: 'Comfortaa600';
