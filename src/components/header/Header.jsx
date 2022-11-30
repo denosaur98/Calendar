@@ -5,7 +5,7 @@ import css from '../header/Header.module.css';
 const Main = ({today, prevHandler, todayHandler, nextHandler, setDisplayMode, displayMode}) => {
     return(
         <div className={css.main}>
-            <a href="/" className={css.home} title="Home">
+            <a href="/" className={css.home} title="Календарь">
             <div className={css.title}>
                 {
                     displayMode === DISPLAY_MODE_DAY ? (

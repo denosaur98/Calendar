@@ -30,11 +30,11 @@
     border: none;
     height: 100%;
     width: 100%;
-    border-radius: 10%;
+    border-radius: 40%;
     background-color: rgb(255, 0, 0);
-    font-weight: bold;
     color: #1E1F21;
-    box-shadow: 1px 1px 10px 1px rgb(255, 0, 0);
+    box-shadow: 0.9px 0.5px 6px 0.5px rgb(255, 0, 0);
+    color: #DDDDDD;
 }
 .event {
     display: flex;
