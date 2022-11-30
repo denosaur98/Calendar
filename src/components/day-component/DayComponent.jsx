@@ -10,7 +10,7 @@ const DayComponent = ({events, today, selectedEvent, changeEventHandler, eventFe
                 <ul className={css.form_list}>
                     {
                         eventList.map(event => (
-                            <li className={css.list_day} onClick={() => openFormHandler('Update', event)}>
+                            <li className={css.list_day} title='Нажмите для просмотра' onClick={() => openFormHandler('Update', event)}>
                                 {
                                     event.title
                                 }

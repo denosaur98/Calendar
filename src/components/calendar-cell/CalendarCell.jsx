@@ -28,7 +28,7 @@ const CalendarCell = ({dayItem, today, openFormHandler, events, setDisplayMode})
                                 </li>
                             ))
                         }
-                        {events.length > 2 ? (<button className={css.ev_btn} key="show more" onClick={() => setDisplayMode(DISPLAY_MODE_DAY)}>show more...</button>) : null}
+                        {events.length > 2 ? (<button className={css.ev_btn} key="show more" title="Нажмите чтобы открыть" onClick={() => setDisplayMode(DISPLAY_MODE_DAY)}>show more...</button>) : null}
                     </ul>
                 </CellWrapper>
         </>
