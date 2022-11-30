@@ -34,3 +34,7 @@
 .day {
     margin-right: 8px;
 }
+.home {
+    text-decoration: none;
+    color: #DDDCDD;
+}

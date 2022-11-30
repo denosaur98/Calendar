@@ -5,6 +5,7 @@ import css from '../header/Header.module.css';
 const Main = ({today, prevHandler, todayHandler, nextHandler, setDisplayMode, displayMode}) => {
     return(
         <div className={css.main}>
+            <a href="/" className={css.home} title="Home">
             <div className={css.title}>
                 {
                     displayMode === DISPLAY_MODE_DAY ? (
@@ -14,6 +15,7 @@ const Main = ({today, prevHandler, todayHandler, nextHandler, setDisplayMode, di
                 <div>{today.format('MMMM')}&nbsp;</div>
                 <div>{today.format('YYYY')}</div>
             </div>
+            </a>
             <div className={css.btn_container}>
                 <BtnWrapper
                     className={css.btn}
