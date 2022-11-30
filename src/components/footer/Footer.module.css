@@ -3,6 +3,7 @@
     src: url('../../assets/Comfortaa600.ttf');
 }
 .footer {
+    bottom: 1px;
     position: relative;
     display: flex;
     margin: 12px;
