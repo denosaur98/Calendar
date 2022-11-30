@@ -1,16 +1,3 @@
 {
-  "event": [
-    {
-      "title": "asdasdasdasdasdasdasdasdasdas",
-      "description": "asd",
-      "date": "1669755600",
-      "id": 4
-    },
-    {
-      "title": "asdasdasdasdasdasdsadsa",
-      "description": "",
-      "date": "1669755600",
-      "id": 5
-    }
-  ]
+  "event": []
 }
